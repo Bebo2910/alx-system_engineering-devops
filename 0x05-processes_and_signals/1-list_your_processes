@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# this script list the process in progress of the device
+ps aufx
+
