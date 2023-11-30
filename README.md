@@ -1,1 +1,1 @@
-this respiratory contain all work related to devops and shell basics
+0x07-networking_basics project for Networking
