@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# The Bash that displays the networks around
+netstat -pl 
