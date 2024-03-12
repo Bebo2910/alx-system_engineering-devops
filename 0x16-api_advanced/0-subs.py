@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import requests
 """Model of finding out the number of subs"""
 
