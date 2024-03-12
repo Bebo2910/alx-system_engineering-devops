@@ -1,4 +1,5 @@
 import requests
+"""Model of finding out the number of subs"""
 
 def number_of_subscribers(subreddit):
     # Define the URL for the subreddit's information using the Reddit API
