@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+list=10
+for i in {1..10}
+do
+	echo "Best School"
+done;
