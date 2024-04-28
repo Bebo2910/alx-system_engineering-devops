@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# this bash file uses until loop to print Best School
 x=1
 until [ $x -gt 10 ]
 do
