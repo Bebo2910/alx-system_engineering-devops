@@ -2,5 +2,5 @@
 # this bash is using for loop to print Best School
 for _ in {1..10}
 do
-	echo "Best School"
+	echo "Best School "
 done;
