@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# this bash print best school in 10 lines except for the line 9 it prints Hi
+
+for i in {1..10}
+do
+	if [ "$i" -eq 9 ]
+	then
+		echo "Hi"
+	else
+		echo "Best School"
+	fi
+done;
