@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# making a script that makes me happier
+
+# checking the updates if found
+apt-get update
+
+#checking for the packege to be found
+apt-get install -y nginx
+
+# making the parent directory
+sudo chown /var/www/
+
+# touching a new file in the fucking server
+echo "Hello World!" > /var/www/index.nginx-debian.html
+# restarting the server
+sudo service nginx restart
