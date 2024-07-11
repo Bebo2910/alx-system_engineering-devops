@@ -1,2 +1,5 @@
+#!/usr/bin/env bash
+# making the docker docking
 echo "Hello Holberton" > /var/www/html/index.html
 sudo service apache2 restart
+
