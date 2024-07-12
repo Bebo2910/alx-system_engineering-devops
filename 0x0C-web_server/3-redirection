@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# making a redirection when hearing the redirect_me file
+
+REDIRECT="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+
+sudo apt update
+sudo apt install -y nginx
+sudo chown -R ubuntu /var/www
+echo "Hello World!" > /var/www/html/index.nginx-debian.html;
+sudo sed -i "i30 $REDIRECT" > /etc/nginx/sites-avalible/default;
+sudo service nginx restart;
