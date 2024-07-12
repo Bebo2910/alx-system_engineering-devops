@@ -7,5 +7,5 @@ sudo apt update
 sudo apt install -y nginx
 sudo chown -R ubuntu /var/www
 echo "Hello World!" > /var/www/html/index.nginx-debian.html;
-sed -i "i30 $REDIRECT" > /etc/nginx/sites-avalible/default;
+sed -i "5i $REDIRECT" /etc/nginx/sites-available/default;
 sudo service nginx restart;
