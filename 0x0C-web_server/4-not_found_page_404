@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# making a redirection using the rewrite method
+
+REDIRECT="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+CUST= "\terror_page 404 /40x.html;\n\tlocation /40x.html {/n/t/troot /etc/nginx/error_files;/ninternal;/n}"
+sudo apt-get update
+
+#checking for the packege to be found
+sudo apt-get install -y nginx
+
+# making the parent directory
+sudo mkdir -p /etc/nginx/html
+sudo mkdir -p /etc/nginx/error_files
+
+#making the file
+touch /var/www/html/index.html
+echo "Hello World!" > /etc/nginx/html/index.html
+touch /etc/nginx/error_files/40x.html
+echo "Ceci n'est pas une page" > /etc/nginx/error_files/40x.html
+
+printf %s "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root /etc/nginx/html;
+    rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+    error_page 404 /40x.html;
+    location = /40x.html {
+        root /etc/nginx/error_files;
+        internal; 
+      }
+    index index.html;
+}" > /etc/nginx/sites-available/default
+sudo service nginx restart;

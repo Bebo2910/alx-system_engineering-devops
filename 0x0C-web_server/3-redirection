@@ -3,9 +3,23 @@
 
 REDIRECT="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
 
-sudo apt update
-sudo apt install -y nginx
-sudo chown -R ubuntu /var/www
-echo "Hello World!" > /var/www/html/index.nginx-debian.html;
+sudo apt-get update
+
+#checking for the packege to be found
+sudo apt-get install -y nginx
+
+# making the parent directory
+sudo mkdir -p /var/www/html
+
+#making the file
+touch /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
+
+printf %s "server {
+   listen 80;
+   listen [::]:80 default_server;
+   root /etc/nginx/html;
+   index index.html index.htm;
+}" > /etc/nginx/sites-available/default
 sed -i "5i $REDIRECT" /etc/nginx/sites-available/default;
 sudo service nginx restart;
