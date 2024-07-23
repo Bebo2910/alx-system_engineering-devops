@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# making the load balancer balancing the balanced web servers
+
+# getting the packages willpacked with us
+apt-get update -y
+apt-get install haproxy -y
+
+# configuring the haproxy server to work as a load balancer
+echo "ENABLED=1" > /etc/default/haproxy
+
+
+printf %s "frontend hbnb
+    timeout client  30000
+    bind 0:80
+    default_backend my_back
+
+backend my_back
+    timeout connect  3000
+    timeout server  30000
+    balance roundrobin
+    server 333927-web-01 54.87.203.83:80 check
+    server 333927-web-02 54.144.147.110:80 check
+" > /etc/haproxy/haproxy.cfg
+
+# starting the service of the haproxy
+service haproxy start
