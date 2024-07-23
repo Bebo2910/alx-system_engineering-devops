@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# making a script that makes me happier
+
+# finding the hostname
+vr=$(hostname)
+rep="server {\n\tadd_header X-served-by $vr;"
+
+apt-get update -y
+apt-get install nginx -y
+
+printf %s "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root /etc/nginx/html;
+    add_header X-Served-By $vr;
+    rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+    error_page 404 /40x.html;
+    location = /40x.html {
+        root /etc/nginx/error_files;
+        internal; 
+      }
+    index index.html;
+}" > /etc/nginx/sites-available/default
+
+# restarting the server
+service nginx restart
