@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# making a script that makes nginx runs itself
-sudo chmod 777 /etc/nginx/nginx.config
-sudo sed -i "s/80/8080/g" /etc/nginx/sites-available/defualt
-sudo -i -u nginx serivce nginx start
+# function of the file is ambigous
+sudo chmod 777 /etc/nginx/nginx.conf
+sudo pkill apache2
+sudo sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
+sudo -u nginx service nginx start
