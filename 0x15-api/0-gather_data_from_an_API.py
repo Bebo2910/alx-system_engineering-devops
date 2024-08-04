@@ -1,10 +1,13 @@
 #!/usr/bin/python3
+"""Module documented"""
 import requests
 import json
 from sys import argv
+"""Module documented"""
 
 
 def main():
+    """Moduel documented"""
     if len(argv) < 2:
         print("Usage: ./script_name.py <user_id>")
         return
@@ -31,4 +34,5 @@ def main():
         print(f"\t{task}")
 
 if __name__ == '__main__':
+    """Module Docuemented"""
     main()
