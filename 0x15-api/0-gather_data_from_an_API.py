@@ -31,7 +31,7 @@ def main():
 
     print(f"Employee {user_data.get('name')} is done with tasks({len(tasks)}/{len(todos)}):")
     for task in tasks:
-        print(f"\t{task}")
+        print(f"\t {task}")
 
 if __name__ == '__main__':
     """Module Docuemented"""
