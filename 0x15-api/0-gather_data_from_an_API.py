@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Module documented"""
 import requests
-import json
 from sys import argv
 """Module documented"""
 
