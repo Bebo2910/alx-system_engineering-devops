@@ -27,7 +27,7 @@ def main():
 
     data = []
     for task in todos:
-        data.append([user_id, user_data["name"], task["completed"], task["title"]])
+        data.append([user_id, user_data["username"], task["completed"], task["title"]])
 
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file, quotechar='"', quoting=csv.QUOTE_ALL)
