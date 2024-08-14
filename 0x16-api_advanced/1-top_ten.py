@@ -14,10 +14,10 @@ def top_ten(subreddit):
         'Accept': 'application/json',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
     }
-    response = requests.get('{}/r/{}/hot.json?limit={}'.format(
-        url, subreddit, 10),
-        headers=header,
-        allow_redirects=False)
+    params = {
+        'limit': 10
+    }
+    response = requests.get(f'{url}/r/{subreddit}/hot.json', headers=header, params=params)
     if response.status_code == 200:
         data = response.json()
         posts = data.get('data', {}).get('children', [])
