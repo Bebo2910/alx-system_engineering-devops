@@ -3,7 +3,6 @@
 Module Docs
 """
 import requests
-from sys import argv
 
 
 def number_of_subscribers(subreddit):
@@ -22,8 +21,3 @@ def number_of_subscribers(subreddit):
     if response.status_code == 200:
         return response.json()['data']['subscribers']
     return 0
-
-
-if __name__ == "__main__":
-    """Dosctring"""
-    print(number_of_subscribers(argv[1]))
