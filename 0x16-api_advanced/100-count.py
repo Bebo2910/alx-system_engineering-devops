@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Docstring for count_words function."""
 import requests
 
 def count_words(subreddit, word_list, word_count=None, after=None):
