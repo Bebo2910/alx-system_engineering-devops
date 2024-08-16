@@ -1,0 +1,12 @@
+#!/bin/bash
+
+UFW_RULES_FILE="/etc/ufw/before.rules"
+
+if grep -q "REDIRECT --to-port 80" $UFW_RULES_FILE; then
+    exit 0
+else
+  sudo sed -i "/^*filter/i *nat\n:PREROUTING ACCEPT [0:0]\n-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80\nCOMMIT\n" $UFW_RULES_FILE
+fi
+
+sudo ufw disable
+sudo ufw enable
