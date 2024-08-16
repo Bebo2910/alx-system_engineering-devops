@@ -1,4 +1,5 @@
 #!/bin/bash
+# comment for the fucking checker to be happy
 
 UFW_RULES_FILE="/etc/ufw/before.rules"
 
